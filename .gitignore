@@ -1,1 +1,6 @@
 ## .gitignore
+
+/.make/*
+!/.make/.gitkeep
+
+.env

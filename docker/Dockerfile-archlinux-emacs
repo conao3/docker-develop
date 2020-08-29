@@ -1,0 +1,13 @@
+## Dockerfile-emacs
+
+FROM conao3/archlinux:latest
+
+# emacs dependency
+# https://git.archlinux.org/svntogit/packages.git/tree/trunk/PKGBUILD?h=packages/emacs#n11
+
+# depends=('librsvg' 'gpm' 'giflib' 'libxpm' 'libotf' 'm17n-lib'
+#          'gtk3' 'hicolor-icon-theme' 'desktop-file-utils'
+#          'alsa-lib' 'gnutls' 'jansson' 'cairo' 'harfbuzz')
+
+RUN yay -S --noconfirm emacs
+RUN yay -Scc --noconfirm

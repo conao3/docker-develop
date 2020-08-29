@@ -1,0 +1,44 @@
+## Dockerfile-archlinux
+
+FROM archlinux:latest
+
+RUN echo '# mirrorlist' > /etc/pacman.d/mirrorlist && \
+    echo 'Server = http://ftp.tsukuba.wide.ad.jp/Linux/archlinux/$repo/os/$arch' >> /etc/pacman.d/mirrorlist && \
+    echo 'Server = http://ftp.jaist.ac.jp/pub/Linux/ArchLinux/$repo/os/$arch' >> /etc/pacman.d/mirrorlist && \
+    ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
+    sed -ie 's/#Color/Color/' /etc/pacman.conf && \
+    sed -ie 's/#VerbosePkgLists/VerbosePkgLists/' /etc/pacman.conf && \
+    pacman-key --init && \
+    pacman-key --populate archlinux && \
+    pacman -Syu --noconfirm
+
+##############################
+
+ARG USER=user
+ARG UID=2001
+ARG GID=2001
+ARG HOME=/home/${USER}
+ARG SHELL=/bin/bash
+
+RUN pacman -S sudo --noconfirm && \
+    groupadd -g ${GID} ${USER} && \
+    useradd -u ${UID} -g ${GID} -m -s ${SHELL} ${USER} && \
+    passwd -d ${USER} && \
+    echo "${USER} ALL=(ALL) ALL" >> /etc/sudoers && \
+    sed -ie 's/^Defaults\tenv_reset/# Defaults\tenv_reset/' /etc/sudoers && \
+    sed -ie 's/^Defaults\tsecure_path/# Defaults\tsecure_path/' /etc/sudoers
+
+##############################
+
+# makepkg requires exec itself by no root user
+USER ${USER}
+
+RUN sudo pacman -S --noconfirm base-devel man git && \
+    mkdir -p ${HOME}/.local/work && \
+    cd ${HOME}/.local/work && git clone https://aur.archlinux.org/yay.git && \
+    cd ${HOME}/.local/work/yay && makepkg --noconfirm -si && \
+    sudo yay --afterclean --removemake --save && \
+    sudo pacman -Rns --noconfirm $(pacman -Qtdq) && \
+    rm -rf ${HOME}/.cache ${HOME}/.local
+
+CMD ["/bin/bash"]

@@ -1,0 +1,14 @@
+## docker-compose.yml
+
+version: '3'
+
+services:
+  emacs:
+    build:
+      context: docker
+      dockerfile: Dockerfile-archlinux-emacs
+    tty: true
+    environment:
+      - DISPLAY=${HOST_DISPLAY}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
