@@ -29,6 +29,9 @@ down:
 	xhost -
 	rm -rf .make/xhost .env
 
+clean:
+	rm -rf .make/*
+
 ####################
 
 .make/up: build .make/xhost .env
