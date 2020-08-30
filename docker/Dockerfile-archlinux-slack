@@ -1,0 +1,10 @@
+## Dockerfile-archlinux-slack
+
+FROM conao3/archlinux:latest
+
+# slack
+# https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=slack-desktop#n12
+# depends=('alsa-lib' 'gtk3' 'libsecret' 'libxss' 'libxtst'
+#          'nss' 'xdg-utils')
+
+RUN yay -S --noconfirm teams

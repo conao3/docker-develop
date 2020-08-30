@@ -1,0 +1,10 @@
+## Dockerfile-archlinux-teams
+
+FROM conao3/archlinux:latest
+
+# teams
+# https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=teams#n10
+# depends=("gtk3" "libxss" "alsa-lib" "libxtst" "libsecret"
+#          "nss" "glibc>=2.28-4")
+
+RUN yay -S --noconfirm teams

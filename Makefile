@@ -12,7 +12,11 @@ all: build
 .PHONY: build
 build: $(DOCKERFILES:%=.make/%) .env
 
+.make/Dockerfile-archlinux:
 .make/Dockerfile-archlinux-emacs: .make/Dockerfile-archlinux
+.make/Dockerfile-archlinux-teams: .make/Dockerfile-archlinux
+.make/Dockerfile-archlinux-slack: .make/Dockerfile-archlinux
+.make/Dockerfile-archlinux-discord: .make/Dockerfile-archlinux
 
 .make/%: docker/%
 	docker image build -t conao3/$(subst docker/Dockerfile-,,$<) -f $< docker

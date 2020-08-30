@@ -12,3 +12,30 @@ services:
       - DISPLAY=${HOST_DISPLAY}
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
+  teams:
+    build:
+      context: docker
+      dockerfile: Dockerfile-archlinux-teams
+    tty: true
+    environment:
+      - DISPLAY=${HOST_DISPLAY}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+  discord:
+    build:
+      context: docker
+      dockerfile: Dockerfile-archlinux-discord
+    tty: true
+    environment:
+      - DISPLAY=${HOST_DISPLAY}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+  slack:
+    build:
+      context: docker
+      dockerfile: Dockerfile-archlinux-slack
+    tty: true
+    environment:
+      - DISPLAY=${HOST_DISPLAY}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix

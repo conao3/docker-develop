@@ -1,0 +1,10 @@
+## Dockerfile-archlinux-discord
+
+FROM conao3/archlinux:latest
+
+# discord
+# https://git.archlinux.org/svntogit/community.git/tree/trunk/PKGBUILD?h=packages/discord#n11
+# depends=('libnotify' 'libxss' 'nspr' 'nss' 'gtk3'
+#          'opera-ffmpeg-codecs' 'libegl' 'libgles')
+
+RUN yay -S --noconfirm discord
