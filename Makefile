@@ -32,7 +32,7 @@ clean:
 	touch $@
 
 .make/Dockerfile-archlinux:
-.make/Dockerfile-archlinux-emacs: .make/Dockerfile-archlinux
+.make/Dockerfile-archlinux-basedevel: .make/Dockerfile-archlinux
 
 .make/%: docker/%
 	docker image build -f $< -t conao3/$(subst docker/Dockerfile-,,$<) --build-arg UID=$(UID) --build-arg GID=$(GID) docker

@@ -1,4 +1,4 @@
-## Dockerfile-emacs
+## Dockerfile-basedevel
 
 FROM conao3/archlinux:latest
 

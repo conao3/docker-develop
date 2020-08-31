@@ -3,10 +3,10 @@
 version: '3'
 
 services:
-  emacs:
+  basedevel:
     build:
       context: docker
-      dockerfile: Dockerfile-archlinux-emacs
+      dockerfile: Dockerfile-archlinux-basedevel
     tty: true
     environment:
       - DISPLAY=${HOST_DISPLAY}
