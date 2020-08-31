@@ -33,9 +33,6 @@ clean:
 
 .make/Dockerfile-archlinux:
 .make/Dockerfile-archlinux-emacs: .make/Dockerfile-archlinux
-.make/Dockerfile-archlinux-teams: .make/Dockerfile-archlinux
-.make/Dockerfile-archlinux-slack: .make/Dockerfile-archlinux
-.make/Dockerfile-archlinux-discord: .make/Dockerfile-archlinux
 
 .make/%: docker/%
 	docker image build -f $< -t conao3/$(subst docker/Dockerfile-,,$<) --build-arg UID=$(UID) --build-arg GID=$(GID) docker
@@ -61,5 +58,5 @@ clean:
 ##############################
 
 .PHONY: emacs teams slack discord
-emacs teams slack discord: .make/up
+emacs: .make/up
 	docker-compose exec $@ $@
