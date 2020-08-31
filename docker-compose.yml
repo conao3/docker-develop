@@ -3,10 +3,10 @@
 version: '3'
 
 services:
-  basedevel:
+  elisp:
     build:
       context: docker
-      dockerfile: Dockerfile-archlinux-basedevel
+      dockerfile: Dockerfile-archlinux-elisp
     tty: true
     environment:
       - DISPLAY=${HOST_DISPLAY}
