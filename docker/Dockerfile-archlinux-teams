@@ -7,4 +7,5 @@ FROM conao3/archlinux:latest
 # depends=("gtk3" "libxss" "alsa-lib" "libxtst" "libsecret"
 #          "nss" "glibc>=2.28-4")
 
-RUN yay -S --noconfirm teams
+RUN yay -Syyu --noconfirm teams && \
+    yay -Scc --noconfirm

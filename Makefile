@@ -2,6 +2,8 @@
 
 all:
 
+UID ?= 1000
+GID ?= 1000
 DOCKERFILES := $(subst docker/,,$(wildcard docker/Dockerfile-*))
 
 ##############################
@@ -10,19 +12,7 @@ DOCKERFILES := $(subst docker/,,$(wildcard docker/Dockerfile-*))
 all: build
 
 .PHONY: build
-build: $(DOCKERFILES:%=.make/%) .env
-
-.make/Dockerfile-archlinux:
-.make/Dockerfile-archlinux-emacs: .make/Dockerfile-archlinux
-.make/Dockerfile-archlinux-teams: .make/Dockerfile-archlinux
-.make/Dockerfile-archlinux-slack: .make/Dockerfile-archlinux
-.make/Dockerfile-archlinux-discord: .make/Dockerfile-archlinux
-
-.make/%: docker/%
-	docker image build -t conao3/$(subst docker/Dockerfile-,,$<) -f $< docker
-	touch $@
-
-####################
+build: .make/build
 
 .PHONY: up
 up: .make/up
@@ -38,7 +28,20 @@ clean:
 
 ####################
 
-.make/up: build .make/xhost .env
+.make/build: $(DOCKERFILES:%=.make/%) .env
+	touch $@
+
+.make/Dockerfile-archlinux:
+.make/Dockerfile-archlinux-emacs: .make/Dockerfile-archlinux
+.make/Dockerfile-archlinux-teams: .make/Dockerfile-archlinux
+.make/Dockerfile-archlinux-slack: .make/Dockerfile-archlinux
+.make/Dockerfile-archlinux-discord: .make/Dockerfile-archlinux
+
+.make/%: docker/%
+	docker image build -f $< -t conao3/$(subst docker/Dockerfile-,,$<) --build-arg UID=$(UID) --build-arg GID=$(GID) docker
+	touch $@
+
+.make/up: .make/build .make/xhost .env
 	docker-compose up -d
 	touch $@
 
@@ -57,6 +60,6 @@ clean:
 
 ##############################
 
-.PHONY: emacs
-emacs: .make/up
-	docker-compose exec emacs emacs
+.PHONY: emacs teams slack discord
+emacs teams slack discord: .make/up
+	docker-compose exec $@ $@

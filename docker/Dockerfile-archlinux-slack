@@ -7,4 +7,6 @@ FROM conao3/archlinux:latest
 # depends=('alsa-lib' 'gtk3' 'libsecret' 'libxss' 'libxtst'
 #          'nss' 'xdg-utils')
 
-RUN yay -S --noconfirm teams
+RUN yay -Syyu --noconfirm libxkbfile firefox && \
+    yay -Syyu --noconfirm slack-desktop && \
+    yay -Scc --noconfirm
