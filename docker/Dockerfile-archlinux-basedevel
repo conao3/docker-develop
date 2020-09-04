@@ -9,6 +9,13 @@ FROM conao3/archlinux:latest
 #          'gtk3' 'hicolor-icon-theme' 'desktop-file-utils'
 #          'alsa-lib' 'gnutls' 'jansson' 'cairo' 'harfbuzz')
 
+# hide this GTK warning
+# (emacs:17): dbind-WARNING **: 20:11:50.214: Couldn't connect to
+# accessibility bus: Failed to connect to socket
+# /tmp/dbus-2ctEtuGB1e: Connection refused
+
+ENV NO_AT_BRIDGE=1
+
 RUN yay -S --noconfirm emacs && \
     yay -S --noconfirm zsh powerline-go hub w3m fd fzf ripgrep && \
     yay -Scc --noconfirm
