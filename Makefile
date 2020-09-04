@@ -23,6 +23,7 @@ down:
 	xhost -
 	rm -rf .make/xhost .env
 
+.PHONY: clean
 clean:
 	rm -rf .make/*
 
