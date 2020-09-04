@@ -32,3 +32,15 @@ services:
     volumes:
       - *vol_display
       - *vol_home
+
+  python:
+    <<: *tty
+    build:
+      context: docker
+      dockerfile: Dockerfile-archlinux-python
+    environment:
+      - *env_display
+    volumes:
+      - *vol_display
+      - *vol_home
+

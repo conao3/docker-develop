@@ -2,3 +2,6 @@
 
 FROM conao3/archlinux-basedevel:latest
 
+RUN yay -S --noconfirm anyenv
+# RUN anyenv init || exit 0
+# RUN yay -Scc --noconfirm

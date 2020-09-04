@@ -58,6 +58,6 @@ clean:
 
 ##############################
 
-.PHONY: elisp bashcaster
-elisp bashcaster: .make/up
+.PHONY: elisp bashcaster python
+elisp bashcaster python: .make/up
 	docker-compose exec $@ zsh
