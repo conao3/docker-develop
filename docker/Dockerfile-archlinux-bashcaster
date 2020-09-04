@@ -9,5 +9,3 @@ FROM conao3/archlinux-basedevel:latest
 
 RUN yay -S --noconfirm bashcaster-git && \
     yay -Scc --noconfirm
-
-WORKDIR ${HOME}/Pictures
