@@ -15,7 +15,9 @@ FROM conao3/archlinux:latest
 # /tmp/dbus-2ctEtuGB1e: Connection refused
 
 ENV NO_AT_BRIDGE=1
+ENV SHELL=/bin/zsh
 
 RUN yay -S --noconfirm emacs && \
-    yay -S --noconfirm zsh powerline-go hub w3m fd fzf ripgrep && \
+    yay -S --noconfirm \
+        zsh tree powerline-go hub w3m fd fzf ripgrep tmux xsel && \
     yay -Scc --noconfirm

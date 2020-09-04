@@ -16,7 +16,7 @@ RUN echo '# mirrorlist' > /etc/pacman.d/mirrorlist && \
 
 ARG UID=2001
 ARG GID=2001
-ENV USER=user
+ARG USER=user
 ENV HOME=/home/${USER}
 ENV SHELL=/bin/bash
 
