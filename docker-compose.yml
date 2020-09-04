@@ -4,6 +4,7 @@ version: '3.7'
 
 x-ref: &ref
   tty: true
+  working_dir: ${HOME}
   environment:
     - &env_display DISPLAY=${HOST_DISPLAY}
   volumes:
