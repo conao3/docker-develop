@@ -58,6 +58,6 @@ clean:
 
 ##############################
 
-.PHONY: emacs teams slack discord
-emacs: .make/up
-	docker-compose exec $@ $@
+.PHONY: elisp bashcaster
+elisp bashcaster: .make/up
+	docker-compose exec $@ zsh
