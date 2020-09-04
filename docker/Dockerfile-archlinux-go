@@ -1,0 +1,6 @@
+## Dockerfile-archlinux-go
+
+FROM conao3/archlinux-basedevel:latest
+
+RUN yay -S --noconfirm go && \
+    yay -Scc --noconfirm

@@ -34,6 +34,7 @@ clean:
 
 .make/Dockerfile-archlinux:
 .make/Dockerfile-archlinux-basedevel: .make/Dockerfile-archlinux
+.make/Dockerfile-archlinux-go: .make/Dockerfile-archlinux-basedevel
 .make/Dockerfile-archlinux-php: .make/Dockerfile-archlinux-basedevel
 .make/Dockerfile-archlinux-cpp: .make/Dockerfile-archlinux-basedevel
 .make/Dockerfile-archlinux-elisp: .make/Dockerfile-archlinux-basedevel
