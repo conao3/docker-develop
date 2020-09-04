@@ -23,8 +23,8 @@ services:
       context: docker
       dockerfile: Dockerfile-archlinux-bashcaster
 
-  python:
+  anyenv:
     <<: *ref
     build:
       context: docker
-      dockerfile: Dockerfile-archlinux-python
+      dockerfile: Dockerfile-archlinux-anyenv
