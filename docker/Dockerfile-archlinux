@@ -14,11 +14,11 @@ RUN echo '# mirrorlist' > /etc/pacman.d/mirrorlist && \
 
 ##############################
 
-ARG USER=user
 ARG UID=2001
 ARG GID=2001
-ARG HOME=/home/${USER}
-ARG SHELL=/bin/bash
+ENV USER=user
+ENV HOME=/home/${USER}
+ENV SHELL=/bin/bash
 
 RUN pacman -S sudo --noconfirm && \
     groupadd -g ${GID} ${USER} && \
