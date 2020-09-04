@@ -1,14 +1,34 @@
 ## docker-compose.yml
 
-version: '3'
+version: '3.7'
+
+x-ref:
+  <<: &tty
+    tty: true
+  x-tree:
+    - &vol_home ${HOME}:/home/user
+    - &env_display DISPLAY=${HOST_DISPLAY}
+    - &vol_display /tmp/.X11-unix:/tmp/.X11-unix
 
 services:
   elisp:
+    <<: *tty
     build:
       context: docker
       dockerfile: Dockerfile-archlinux-elisp
-    tty: true
     environment:
-      - DISPLAY=${HOST_DISPLAY}
+      - *env_display
     volumes:
-      - /tmp/.X11-unix:/tmp/.X11-unix
+      - *vol_display
+      - *vol_home
+
+  bashcaster:
+    <<: *tty
+    build:
+      context: docker
+      dockerfile: Dockerfile-archlinux-bashcaster
+    environment:
+      - *env_display
+    volumes:
+      - *vol_display
+      - *vol_home
