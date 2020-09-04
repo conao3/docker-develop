@@ -1,0 +1,6 @@
+## Dockerfile-archlinux-cpp
+
+FROM conao3/archlinux-basedevel:latest
+
+RUN yay -S --noconfirm clang cppcheck splint && \
+    yay -Scc --noconfirm

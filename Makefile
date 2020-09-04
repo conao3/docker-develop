@@ -34,6 +34,7 @@ clean:
 
 .make/Dockerfile-archlinux:
 .make/Dockerfile-archlinux-basedevel: .make/Dockerfile-archlinux
+.make/Dockerfile-archlinux-cpp: .make/Dockerfile-archlinux-basedevel
 .make/Dockerfile-archlinux-elisp: .make/Dockerfile-archlinux-basedevel
 .make/Dockerfile-archlinux-anyenv: .make/Dockerfile-archlinux-basedevel
 .make/Dockerfile-archlinux-bashcaster: .make/Dockerfile-archlinux-basedevel
@@ -62,5 +63,5 @@ clean:
 ##############################
 
 .PHONY: elisp bashcaster python go php
-elisp bashcaster python go php: .make/up
+elisp bashcaster python go php cpp: .make/up
 	docker-compose exec $@ zsh
