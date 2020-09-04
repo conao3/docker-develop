@@ -2,45 +2,29 @@
 
 version: '3.7'
 
-x-ref:
-  <<: &tty
-    tty: true
-  x-tree:
-    - &vol_home ${HOME}:/home/user
+x-ref: &ref
+  tty: true
+  environment:
     - &env_display DISPLAY=${HOST_DISPLAY}
+  volumes:
+    - &vol_home ${HOME}:/home/user
     - &vol_display /tmp/.X11-unix:/tmp/.X11-unix
 
 services:
   elisp:
-    <<: *tty
+    <<: *ref
     build:
       context: docker
       dockerfile: Dockerfile-archlinux-elisp
-    environment:
-      - *env_display
-    volumes:
-      - *vol_display
-      - *vol_home
 
   bashcaster:
-    <<: *tty
+    <<: *ref
     build:
       context: docker
       dockerfile: Dockerfile-archlinux-bashcaster
-    environment:
-      - *env_display
-    volumes:
-      - *vol_display
-      - *vol_home
 
   python:
-    <<: *tty
+    <<: *ref
     build:
       context: docker
       dockerfile: Dockerfile-archlinux-python
-    environment:
-      - *env_display
-    volumes:
-      - *vol_display
-      - *vol_home
-
