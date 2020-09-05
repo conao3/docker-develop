@@ -2,5 +2,5 @@
 
 FROM conao3/archlinux-basedevel:latest
 
-RUN yay -S --noconfirm clang cppcheck splint && \
+RUN yay -Sy --noconfirm clang cppcheck splint && \
     yay -Scc --noconfirm

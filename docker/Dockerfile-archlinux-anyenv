@@ -2,5 +2,5 @@
 
 FROM conao3/archlinux-basedevel:latest
 
-RUN yay -S --noconfirm anyenv && \
+RUN yay -Sy --noconfirm anyenv && \
     yay -Scc --noconfirm

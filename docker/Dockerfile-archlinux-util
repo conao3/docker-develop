@@ -5,13 +5,12 @@ FROM conao3/archlinux:latest
 ENV NO_AT_BRIDGE=1
 ENV SHELL=/bin/zsh
 
-RUN yay -S --noconfirm emacs
-RUN yay -S --noconfirm zsh tree powerline-go hub w3m
-RUN yay -S --noconfirm fd fzf ripgrep tmux xsel tokei
+RUN yay -Sy --noconfirm emacs
+RUN yay -Sy --noconfirm zsh tree powerline-go hub w3m
+RUN yay -Sy --noconfirm fd fzf ripgrep tmux xsel tokei
 
-RUN yay -S --noconfirm bashcaster-git
-RUN yay -S --noconfirm foxitreader
-RUN yay -S --noconfirm gimp
+RUN yay -Sy --noconfirm bashcaster-git
+RUN yay -Sy --noconfirm foxitreader
+RUN yay -Sy --noconfirm gimp
 
 RUN yay -Scc --noconfirm
-

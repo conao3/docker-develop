@@ -2,5 +2,5 @@
 
 FROM conao3/archlinux-basedevel:latest
 
-RUN yay -S --noconfirm go && \
+RUN yay -Sy --noconfirm go && \
     yay -Scc --noconfirm

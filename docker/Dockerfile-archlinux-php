@@ -2,5 +2,5 @@
 
 FROM conao3/archlinux-basedevel:latest
 
-RUN yay -S --noconfirm apache postgresql sqlite && \
+RUN yay -Sy --noconfirm apache postgresql sqlite && \
     yay -Scc --noconfirm

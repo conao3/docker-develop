@@ -17,8 +17,8 @@ FROM conao3/archlinux:latest
 ENV NO_AT_BRIDGE=1
 ENV SHELL=/bin/zsh
 
-RUN yay -S --noconfirm emacs && \
-    yay -S --noconfirm \
+RUN yay -Sy --noconfirm emacs && \
+    yay -Sy --noconfirm \
         zsh tree powerline-go hub w3m fd fzf ripgrep tmux xsel \
         tokei aws-cli && \
     yay -Scc --noconfirm

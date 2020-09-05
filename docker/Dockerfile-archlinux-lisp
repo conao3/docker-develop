@@ -2,7 +2,7 @@
 
 FROM conao3/archlinux-basedevel:latest
 
-RUN yay -S --noconfirm roswell-git && \
+RUN yay -Sy --noconfirm roswell-git && \
     yay -Scc --noconfirm
 
 ENV PATH=$HOME/.roswell/bin:$PATH
