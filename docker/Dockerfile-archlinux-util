@@ -8,8 +8,10 @@ ENV SHELL=/bin/zsh
 RUN yay -S --noconfirm emacs
 RUN yay -S --noconfirm zsh tree powerline-go hub w3m
 RUN yay -S --noconfirm fd fzf ripgrep tmux xsel tokei
+
 RUN yay -S --noconfirm bashcaster-git
 RUN yay -S --noconfirm foxitreader
+RUN yay -S --noconfirm gimp
 
 RUN yay -Scc --noconfirm
 
