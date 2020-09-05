@@ -19,5 +19,6 @@ ENV SHELL=/bin/zsh
 
 RUN yay -S --noconfirm emacs && \
     yay -S --noconfirm \
-        zsh tree powerline-go hub w3m fd fzf ripgrep tmux xsel && \
+        zsh tree powerline-go hub w3m fd fzf ripgrep tmux xsel \
+        tokei aws-cli && \
     yay -Scc --noconfirm
