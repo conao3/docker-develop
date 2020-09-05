@@ -48,3 +48,8 @@ services:
       context: docker
       dockerfile: Dockerfile-archlinux-cpp
 
+  lisp:
+    <<: *ref
+    build:
+      context: docker
+      dockerfile: Dockerfile-archlinux-lisp
