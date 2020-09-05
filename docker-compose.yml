@@ -23,6 +23,7 @@ services:
     build:
       context: docker
       dockerfile: Dockerfile-archlinux-bashcaster
+    working_dir: ${HOME}/Pictures
 
   python:
     <<: *ref
