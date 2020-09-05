@@ -18,11 +18,11 @@ services:
       context: docker
       dockerfile: Dockerfile-archlinux-elisp
 
-  bashcaster:
+  util:
     <<: *ref
     build:
       context: docker
-      dockerfile: Dockerfile-archlinux-bashcaster
+      dockerfile: Dockerfile-archlinux-util
     working_dir: ${HOME}/Pictures
 
   python:

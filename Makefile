@@ -37,10 +37,10 @@ clean:
 .make/Dockerfile-archlinux-go: .make/Dockerfile-archlinux-basedevel
 .make/Dockerfile-archlinux-php: .make/Dockerfile-archlinux-basedevel
 .make/Dockerfile-archlinux-cpp: .make/Dockerfile-archlinux-basedevel
+.make/Dockerfile-archlinux-util: .make/Dockerfile-archlinux-basedevel
 .make/Dockerfile-archlinux-lisp: .make/Dockerfile-archlinux-basedevel
 .make/Dockerfile-archlinux-elisp: .make/Dockerfile-archlinux-basedevel
 .make/Dockerfile-archlinux-anyenv: .make/Dockerfile-archlinux-basedevel
-.make/Dockerfile-archlinux-bashcaster: .make/Dockerfile-archlinux-basedevel
 
 .make/%: docker/%
 	docker image build -f $< -t conao3/$(subst docker/Dockerfile-,,$<) --build-arg USER=$(USER) --build-arg UID=$(UID) --build-arg GID=$(GID) docker
@@ -65,6 +65,6 @@ clean:
 
 ##############################
 
-.PHONY: elisp bashcaster python go php
-elisp bashcaster python go php cpp lisp: .make/up
+.PHONY: elisp util python go php
+elisp util python go php cpp lisp: .make/up
 	docker-compose exec $@ zsh
