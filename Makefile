@@ -42,8 +42,8 @@ clean:
 .make/Dockerfile-archlinux-elisp: .make/Dockerfile-archlinux-basedevel
 .make/Dockerfile-archlinux-anyenv: .make/Dockerfile-archlinux-basedevel
 
-.make/%: docker/%
-	docker image build -f $< -t conao3/$(subst docker/Dockerfile-,,$<) --build-arg USER=$(USER) --build-arg UID=$(UID) --build-arg GID=$(GID) docker
+.make/%: docker/% .env
+	docker image build -f $< -t conao3/$(subst docker/Dockerfile-,,$<) docker
 	touch $@
 
 .make/up: .make/build .make/xhost .env
@@ -62,6 +62,9 @@ clean:
 	  MINGW*)   echo HOST_DISPLAY="host.docker.internal:0" > $@;; \
 	  *)        echo "UNKNOWN uname output:$$(uname -s)";; \
 	esac
+	echo USER=$(USER) >> $@
+	echo UID=$(UID) >> $@
+	echo GID=$(GID) >> $@
 
 ##############################
 
