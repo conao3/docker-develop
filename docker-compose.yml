@@ -8,8 +8,8 @@ x-ref: &ref
   environment:
     - &env_display DISPLAY=${HOST_DISPLAY}
   volumes:
-    - &vol_home ${HOME}:${HOME}
     - &vol_display /tmp/.X11-unix:/tmp/.X11-unix
+    - &vol_zshrc ${HOME}/.zshrc:${HOME}/.zshrc
 
 services:
   elisp:

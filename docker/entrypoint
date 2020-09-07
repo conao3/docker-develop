@@ -1,0 +1,13 @@
+#!/bin/bash
+
+L_USER=${LOCAL_USER:-user}
+L_UID=${LOCAL_UID:-9001}
+L_GID=${LOCAL_GID:-9001}
+
+echo "Starting with $$USER=$L_USER, $$UID=$L_UID, $$GID=$L_GID"
+
+groupmod -g $L_GID user
+usermod -u $L_UID -l $L_USER -m -d /home/$L_USER user
+
+cd /home/$L_USER
+exec su-exec $L_USER "$@"

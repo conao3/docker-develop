@@ -2,4 +2,8 @@
 
 FROM conao3/archlinux-basedevel:latest
 
+USER user
+
 # none needed
+
+USER root

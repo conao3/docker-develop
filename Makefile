@@ -62,9 +62,9 @@ clean:
 	  MINGW*)   echo HOST_DISPLAY="host.docker.internal:0" > $@;; \
 	  *)        echo "UNKNOWN uname output:$$(uname -s)";; \
 	esac
-	echo USER=$(USER) >> $@
-	echo UID=$(UID) >> $@
-	echo GID=$(GID) >> $@
+	echo LOCAL_USER=$(USER) >> $@
+	echo LOCAL_UID=$(UID) >> $@
+	echo LOCAL_GID=$(GID) >> $@
 
 ##############################
 

@@ -2,6 +2,8 @@
 
 FROM conao3/archlinux:latest
 
+USER user
+
 ENV NO_AT_BRIDGE=1
 ENV SHELL=/bin/zsh
 
@@ -14,3 +16,6 @@ RUN yay -Sy --noconfirm foxitreader
 RUN yay -Sy --noconfirm gimp
 
 RUN yay -Scc --noconfirm
+
+USER root
+CMD ["/bin/zsh"]

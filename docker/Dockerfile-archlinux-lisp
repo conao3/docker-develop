@@ -2,6 +2,8 @@
 
 FROM conao3/archlinux-basedevel:latest
 
+USER user
+
 RUN yay -Sy --noconfirm roswell-git && \
     yay -Scc --noconfirm
 
@@ -9,3 +11,5 @@ ENV PATH=$HOME/.roswell/bin:$PATH
 
 RUN ros setup
 RUN ros install fukamachi/rove
+
+USER root
