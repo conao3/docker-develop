@@ -21,11 +21,10 @@ up: .make/up
 down:
 	docker-compose down
 	xhost -
-	rm -rf .make/xhost .env
 
 .PHONY: clean
 clean:
-	rm -rf .make/*
+	rm -rf .make/* .env
 
 ####################
 
