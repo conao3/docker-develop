@@ -67,6 +67,6 @@ clean:
 
 ##############################
 
-.PHONY: elisp util python go php
-elisp util python go php cpp lisp: .make/up
+.PHONY: util go php cpp lisp elisp
+util go php cpp lisp elisp: .make/up
 	docker-compose exec $@ zsh
