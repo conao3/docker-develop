@@ -22,6 +22,7 @@ up: .make/up
 down:
 	docker-compose down
 	xhost -
+	rm -rf .make/up
 
 .PHONY: clean
 clean:
