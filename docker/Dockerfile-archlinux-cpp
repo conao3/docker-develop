@@ -2,9 +2,5 @@
 
 FROM conao3/archlinux-basedevel:latest
 
-USER user
-
 RUN yay -Sy --noconfirm clang cppcheck splint && \
     yay -Scc --noconfirm
-
-USER root

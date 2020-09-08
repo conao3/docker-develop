@@ -4,6 +4,7 @@ all:
 
 UID ?= 1000
 GID ?= 1000
+REBUILD ?=
 DOCKERFILES := $(subst docker/,,$(wildcard docker/Dockerfile-*))
 
 ##############################
@@ -42,7 +43,8 @@ clean:
 .make/Dockerfile-archlinux-anyenv: .make/Dockerfile-archlinux-basedevel
 
 .make/%: docker/% .env
-	docker image build -f $< -t conao3/$(subst docker/Dockerfile-,,$<) docker
+	docker image build -f $< -t conao3/$(subst docker/Dockerfile-,,$<) $(if $(REBUILD),--no-cache) \
+          --build-arg USER=$(USER) --build-arg UID=$(UID) --build-arg GID=$(GID) docker
 	touch $@
 
 .make/up: .make/build .make/xhost .env
@@ -61,9 +63,6 @@ clean:
 	  MINGW*)   echo HOST_DISPLAY="host.docker.internal:0" > $@;; \
 	  *)        echo "UNKNOWN uname output:$$(uname -s)";; \
 	esac
-	echo LOCAL_USER=$(USER) >> $@
-	echo LOCAL_UID=$(UID) >> $@
-	echo LOCAL_GID=$(GID) >> $@
 
 ##############################
 

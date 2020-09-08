@@ -20,7 +20,8 @@ ARG USER=user
 ARG HOME=/home/${USER}
 ARG SHELL=/bin/bash
 
-RUN pacman -S sudo --noconfirm && \
+RUN echo "UID=$UID, GID=$GID, USER=$USER, HOME=$HOME, SHELL=$SHELL" && \
+    pacman -S sudo --noconfirm && \
     groupadd -f wheel && \
     groupadd -g ${GID} ${USER} && \
     useradd -u ${UID} -g ${GID} -G wheel -m -s ${SHELL} ${USER} && \
@@ -41,14 +42,7 @@ RUN sudo pacman -S --noconfirm base-devel man git && \
     sudo pacman -Rns --noconfirm $(pacman -Qtdq) && \
     rm -rf ${HOME}/.cache ${HOME}/.local
 
-COPY entrypoint /usr/local/bin/entrypoint
-RUN yay -S --noconfirm su-exec && \
-    sudo chmod +x /usr/local/bin/entrypoint
-
 RUN yay -S --noconfirm adobe-source-han-sans-jp-fonts otf-ipafont && \
     yay -Scc --noconfirm
 
-USER root
-
-ENTRYPOINT ["/usr/local/bin/entrypoint"]
 CMD ["/bin/bash"]

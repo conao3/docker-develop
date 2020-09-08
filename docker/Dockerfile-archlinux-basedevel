@@ -14,8 +14,6 @@ FROM conao3/archlinux:latest
 # accessibility bus: Failed to connect to socket
 # /tmp/dbus-2ctEtuGB1e: Connection refused
 
-USER user
-
 ENV NO_AT_BRIDGE=1
 
 RUN yay -Sy --noconfirm emacs && \
@@ -24,5 +22,4 @@ RUN yay -Sy --noconfirm emacs && \
         tokei aws-cli && \
     yay -Scc --noconfirm
 
-USER root
 CMD ["/bin/zsh"]

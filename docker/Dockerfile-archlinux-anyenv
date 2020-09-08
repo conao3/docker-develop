@@ -2,9 +2,5 @@
 
 FROM conao3/archlinux-basedevel:latest
 
-USER user
-
 RUN yay -Sy --noconfirm anyenv && \
     yay -Scc --noconfirm
-
-USER root
