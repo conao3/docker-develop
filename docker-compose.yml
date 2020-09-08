@@ -8,13 +8,13 @@ x-ref: &ref
   environment:
     - &env_display DISPLAY=${HOST_DISPLAY}
   volumes:
-    - &vol_display /tmp/.X11-unix:/tmp/.X11-unix
-    - &vol_zshrc ${HOME}/.zshrc:${HOME}/.zshrc
-    - &vol_emacs ${HOME}/.emacs.d:${HOME}/.emacs.d
-    - &vol_ssh ${HOME}/.ssh:${HOME}/.ssh
-    - &vol_gpg ${HOME}/.gnupg:${HOME}/.gnupg
     - &vol_dev ${HOME}/dev:${HOME}/dev
+    - &vol_display /tmp/.X11-unix:/tmp/.X11-unix
+    - &vol_emacs ${HOME}/.emacs.d:${HOME}/.emacs.d
+    - &vol_gpg ${HOME}/.gnupg:${HOME}/.gnupg
     - &vol_secret ${HOME}/.secret:${HOME}/.secret
+    - &vol_ssh ${HOME}/.ssh:${HOME}/.ssh
+    - &vol_zshrc ${HOME}/.zshrc:${HOME}/.zshrc
 
 x-ref2:
   volumes:
