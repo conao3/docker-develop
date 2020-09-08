@@ -1,0 +1,13 @@
+#!/bin/bash
+
+docker image build -f docker/Dockerfile-archlinux -t conao3/archlinux --no-cache \
+    --build-arg USER=conao --build-arg UID=1000 --build-arg GID=1000 docker
+touch .make/Dockerfile-archlinux
+
+docker image build -f docker/Dockerfile-archlinux-basedevel -t conao3/archlinux-basedevel --no-cache \
+    --build-arg USER=conao --build-arg UID=1000 --build-arg GID=1000 docker
+touch .make/Dockerfile-archlinux-basedevel
+
+docker image build -f docker/Dockerfile-archlinux-elisp -t conao3/archlinux-elisp --no-cache \
+          --build-arg USER=conao --build-arg UID=1000 --build-arg GID=1000 docker
+touch .make/Dockerfile-archlinux-elisp
