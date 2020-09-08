@@ -13,6 +13,7 @@ x-ref: &ref
     - &vol_display /tmp/.X11-unix:/tmp/.X11-unix
     - &vol_emacs ${HOME}/.emacs.d:${HOME}/.emacs.d
     - &vol_gpg ${HOME}/.gnupg:${HOME}/.gnupg
+    - &vol_gpgagent /run/user/${LOCAL_UID}/:/run/user/${LOCAL_UID}/:ro
     - &vol_secret ${HOME}/.secret:${HOME}/.secret
     - &vol_ssh ${HOME}/.ssh:${HOME}/.ssh
     - &vol_zshrc ${HOME}/.zshrc:${HOME}/.zshrc
@@ -35,7 +36,7 @@ services:
       dockerfile: Dockerfile-archlinux-util
     working_dir: ${HOME}/Pictures
     volumes: [*vol_config, *vol_dev, *vol_display, *vol_emacs,
-              *vol_gpg, *vol_secret, *vol_ssh, *vol_zshrc,
+              *vol_gpg, *vol_gpgagent, *vol_secret, *vol_ssh, *vol_zshrc,
               *vol_pictures]
 
   python:
