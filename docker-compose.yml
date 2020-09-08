@@ -8,6 +8,7 @@ x-ref: &ref
   environment:
     - &env_display DISPLAY=${HOST_DISPLAY}
   volumes:
+    - &vol_config ${HOME}/.config:${HOME}/.config
     - &vol_dev ${HOME}/dev:${HOME}/dev
     - &vol_display /tmp/.X11-unix:/tmp/.X11-unix
     - &vol_emacs ${HOME}/.emacs.d:${HOME}/.emacs.d
@@ -33,8 +34,8 @@ services:
       context: docker
       dockerfile: Dockerfile-archlinux-util
     working_dir: ${HOME}/Pictures
-    volumes: [*vol_dev, *vol_display, *vol_emacs, *vol_gpg,
-              *vol_secret, *vol_ssh, *vol_zshrc,
+    volumes: [*vol_config, *vol_dev, *vol_display, *vol_emacs,
+              *vol_gpg, *vol_secret, *vol_ssh, *vol_zshrc,
               *vol_pictures]
 
   python:
