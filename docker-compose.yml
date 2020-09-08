@@ -16,6 +16,10 @@ x-ref: &ref
     - &vol_dev ${HOME}/dev:${HOME}/dev
     - &vol_secret ${HOME}/.secret:${HOME}/.secret
 
+x-ref2:
+  volumes:
+    - &vol_pictures ${HOME}/Pictures:${HOME}/Pictures
+
 services:
   elisp:
     <<: *ref
@@ -29,6 +33,9 @@ services:
       context: docker
       dockerfile: Dockerfile-archlinux-util
     working_dir: ${HOME}/Pictures
+    volumes: [*vol_dev, *vol_display, *vol_emacs, *vol_gpg,
+              *vol_secret, *vol_ssh, *vol_zshrc,
+              *vol_pictures]
 
   python:
     <<: *ref
