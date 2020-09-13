@@ -1,0 +1,16 @@
+## Dockerfile-archlinux-atcoder
+
+FROM conao3/archlinux-basedevel:latest
+
+RUN yay -Sy --noconfirm anyenv && \
+    yay -Scc --noconfirm
+# RUN anyenv init || true
+RUN anyenv install --init || true
+RUN anyenv install --force-init
+RUN anyenv install pyenv
+RUN eval "$(anyenv init -)" && \
+    pyenv install 3.8.5 && \
+    pyenv global 3.8.5 && \
+    python3 -m pip install --upgrade pip && \
+    pip3 install online-judge-tools online-judge-template-generator && \
+    which pyenv && which python3

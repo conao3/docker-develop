@@ -47,6 +47,12 @@ services:
       context: docker
       dockerfile: Dockerfile-archlinux-python
 
+  atcoder:
+    <<: *ref
+    build:
+      context: docker
+      dockerfile: Dockerfile-archlinux-atcoder
+
   go:
     <<: *ref
     build:

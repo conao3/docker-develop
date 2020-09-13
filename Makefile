@@ -42,6 +42,7 @@ clean:
 .make/Dockerfile-archlinux-lisp: .make/Dockerfile-archlinux-basedevel
 .make/Dockerfile-archlinux-elisp: .make/Dockerfile-archlinux-basedevel
 .make/Dockerfile-archlinux-python: .make/Dockerfile-archlinux-basedevel
+.make/Dockerfile-archlinux-atcoder: .make/Dockerfile-archlinux-basedevel
 
 .make/%: docker/% .env
 	docker image build -f $< -t conao3/$(subst docker/Dockerfile-,,$<) $(if $(REBUILD),--no-cache) \
@@ -67,6 +68,6 @@ clean:
 
 ##############################
 
-.PHONY: util go php cpp lisp elisp python
-util go php cpp lisp elisp python: .make/up
+.PHONY: util go php cpp lisp elisp python atcoder
+util go php cpp lisp elisp python atcoder: .make/up
 	docker-compose exec $@ zsh
