@@ -19,7 +19,7 @@ ENV NO_AT_BRIDGE=1
 RUN yay -Sy --noconfirm emacs && \
     yay -Sy --noconfirm \
         zsh tree powerline-go hub w3m fd fzf ripgrep tmux xsel \
-        tokei aws-cli && \
+        tokei aws-cli openssh && \
     yay -Scc --noconfirm
 
 CMD ["/bin/zsh"]
