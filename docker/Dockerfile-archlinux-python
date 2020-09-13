@@ -1,4 +1,4 @@
-## Dockerfile-archlinux-anyenv
+## Dockerfile-archlinux-python
 
 FROM conao3/archlinux-basedevel:latest
 

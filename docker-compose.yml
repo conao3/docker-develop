@@ -45,7 +45,7 @@ services:
     <<: *ref
     build:
       context: docker
-      dockerfile: Dockerfile-archlinux-anyenv
+      dockerfile: Dockerfile-archlinux-python
 
   go:
     <<: *ref

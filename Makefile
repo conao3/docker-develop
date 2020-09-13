@@ -41,7 +41,7 @@ clean:
 .make/Dockerfile-archlinux-cpp: .make/Dockerfile-archlinux-basedevel
 .make/Dockerfile-archlinux-lisp: .make/Dockerfile-archlinux-basedevel
 .make/Dockerfile-archlinux-elisp: .make/Dockerfile-archlinux-basedevel
-.make/Dockerfile-archlinux-anyenv: .make/Dockerfile-archlinux-basedevel
+.make/Dockerfile-archlinux-python: .make/Dockerfile-archlinux-basedevel
 
 .make/%: docker/% .env
 	docker image build -f $< -t conao3/$(subst docker/Dockerfile-,,$<) $(if $(REBUILD),--no-cache) \
