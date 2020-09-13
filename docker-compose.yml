@@ -9,8 +9,10 @@ x-ref: &ref
     - &env_display DISPLAY=${HOST_DISPLAY}
   volumes:
     - &vol_config ${HOME}/.config:${HOME}/.config
+    - &vol_debugemacs ${HOME}/.emacs.d:${HOME}/.debug.emacs.d
     - &vol_dev ${HOME}/dev:${HOME}/dev
     - &vol_display /tmp/.X11-unix:/tmp/.X11-unix
+    - &vol_docker ${HOME}/.emacs.d:${HOME}/docker
     - &vol_emacs ${HOME}/.emacs.d:${HOME}/.emacs.d
     - &vol_gpg ${HOME}/.gnupg:${HOME}/.gnupg
     - &vol_gpgagent /run/user/${LOCAL_UID}/:/run/user/${LOCAL_UID}/:ro
@@ -35,7 +37,7 @@ services:
       context: docker
       dockerfile: Dockerfile-archlinux-util
     working_dir: ${HOME}/Pictures
-    volumes: [*vol_config, *vol_dev, *vol_display, *vol_emacs,
+    volumes: [*vol_config, *vol_dev, *vol_display, *vol_docker, *vol_emacs,
               *vol_gpg, *vol_gpgagent, *vol_secret, *vol_ssh, *vol_zshrc,
               *vol_pictures]
 
