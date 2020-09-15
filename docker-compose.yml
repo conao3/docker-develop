@@ -16,6 +16,7 @@ x-ref: &ref
     - &vol_emacs ${HOME}/.emacs.d:${HOME}/.emacs.d
     - &vol_gpg ${HOME}/.gnupg:${HOME}/.gnupg
     - &vol_gpgagent /run/user/${LOCAL_UID}/:/run/user/${LOCAL_UID}/:ro
+    - &vol_local ${HOME}/.local:${HOME}/.local
     - &vol_secret ${HOME}/.secret:${HOME}/.secret
     - &vol_ssh ${HOME}/.ssh:${HOME}/.ssh
     - &vol_zshrc ${HOME}/.zshrc:${HOME}/.zshrc
