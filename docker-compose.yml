@@ -12,7 +12,7 @@ x-ref: &ref
     - &vol_debugemacs ${HOME}/.emacs.d:${HOME}/.debug.emacs.d
     - &vol_dev ${HOME}/dev:${HOME}/dev
     - &vol_display /tmp/.X11-unix:/tmp/.X11-unix
-    - &vol_docker ${HOME}/.emacs.d:${HOME}/docker
+    - &vol_docker ${HOME}/docker:${HOME}/docker
     - &vol_emacs ${HOME}/.emacs.d:${HOME}/.emacs.d
     - &vol_gpg ${HOME}/.gnupg:${HOME}/.gnupg
     - &vol_gpgagent /run/user/${LOCAL_UID}/:/run/user/${LOCAL_UID}/:ro
