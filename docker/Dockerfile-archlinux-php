@@ -11,4 +11,4 @@ RUN yay -Sy --noconfirm apache postgresql mysql sqlite composer npm && \
 RUN sudo npm install -g intelephense vscode-html-languageserver-bin \
         vscode-css-languageserver-bin && \
     yay -S --noconfirm unzip && \
-    composer global require phpstan/phpstan
+    composer global require phpstan/phpstan phpactor/phpactor
