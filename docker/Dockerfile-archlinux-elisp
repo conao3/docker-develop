@@ -2,4 +2,5 @@
 
 FROM conao3/archlinux-basedevel:latest
 
-# none needed
+RUN yay -S --noconfirm cask && \
+    yay -Scc --noconfirm
