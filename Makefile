@@ -37,6 +37,7 @@ clean:
 .make/Dockerfile-archlinux-util: .make/Dockerfile-archlinux
 .make/Dockerfile-archlinux-basedevel: .make/Dockerfile-archlinux
 .make/Dockerfile-archlinux-go: .make/Dockerfile-archlinux-basedevel
+.make/Dockerfile-archlinux-cs: .make/Dockerfile-archlinux-basedevel
 .make/Dockerfile-archlinux-php: .make/Dockerfile-archlinux-basedevel
 .make/Dockerfile-archlinux-cpp: .make/Dockerfile-archlinux-basedevel
 .make/Dockerfile-archlinux-lisp: .make/Dockerfile-archlinux-basedevel
@@ -68,6 +69,6 @@ clean:
 
 ##############################
 
-.PHONY: util go php cpp lisp elisp python atcoder
-util go php cpp lisp elisp python atcoder: .make/up
+.PHONY: util go cs php cpp lisp elisp python atcoder
+util go cs php cpp lisp elisp python atcoder: .make/up
 	docker-compose exec $@ zsh

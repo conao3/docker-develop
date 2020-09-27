@@ -9,7 +9,7 @@ x-ref: &ref
     - &env_display DISPLAY=${HOST_DISPLAY}
   volumes:
     - &vol_config ${HOME}/.config:${HOME}/.config
-    - &vol_debugemacs ${HOME}/.emacs.d:${HOME}/.debug.emacs.d
+    - &vol_debugemacs ${HOME}/.debug.emacs.d:${HOME}/.debug.emacs.d
     - &vol_dev ${HOME}/dev:${HOME}/dev
     - &vol_display /tmp/.X11-unix:/tmp/.X11-unix
     - &vol_docker ${HOME}/docker:${HOME}/docker
@@ -77,3 +77,9 @@ services:
     build:
       context: docker
       dockerfile: Dockerfile-archlinux-lisp
+
+  cs:
+    <<: *ref
+    build:
+      context: docker
+      dockerfile: Dockerfile-archlinux-cs
