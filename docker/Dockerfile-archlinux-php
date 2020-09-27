@@ -2,7 +2,7 @@
 
 FROM conao3/archlinux-basedevel:latest
 
-RUN yay -Sy --noconfirm apache postgresql sqlite composer npm && \
+RUN yay -Sy --noconfirm apache postgresql mysql sqlite composer npm && \
     yay -Scc --noconfirm
 
 # intelephense is lsp of php
