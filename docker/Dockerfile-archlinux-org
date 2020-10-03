@@ -1,0 +1,14 @@
+## Dockerfile-archlinux-org
+
+FROM conao3/archlinux-basedevel:latest
+
+RUN yay -S --noconfirm r anyenv texlive-langjapanese && \
+    yay -Scc --noconfirm
+
+RUN anyenv install --init || true
+RUN anyenv install --force-init
+RUN anyenv install pyenv
+RUN eval "$(anyenv init -)" && pyenv install 3.8.5 && pyenv global 3.8.5
+RUN eval "$(anyenv init -)" && \
+    python3 -m pip install --upgrade pip && \
+    pip3 install jupyter numpy pandas matplotlib scikit-learn 
