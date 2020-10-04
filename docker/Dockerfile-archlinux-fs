@@ -1,0 +1,6 @@
+## Dockerfile-archlinux-cs
+
+FROM conao3/archlinux-basedevel:latest
+
+RUN yay -Sy --noconfirm fsharp && \
+    yay -Scc --noconfirm

@@ -84,6 +84,12 @@ services:
       context: docker
       dockerfile: Dockerfile-archlinux-cs
 
+  fs:
+    <<: *ref
+    build:
+      context: docker
+      dockerfile: Dockerfile-archlinux-fs
+
   org:
     <<: *ref
     build:
